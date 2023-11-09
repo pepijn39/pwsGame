@@ -1,0 +1,4 @@
+repository "pwsGame11@PWSgame11@cloud"
+  path "/"
+    br "/main"
+    co "/main"

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 110750739}
   - component: {fileID: 110750743}
   - component: {fileID: 110750744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 204525162}
   - component: {fileID: 204525163}
   - component: {fileID: 204525164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
