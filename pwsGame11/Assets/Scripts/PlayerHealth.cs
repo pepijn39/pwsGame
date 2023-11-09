@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    Vector2 startPos;
 
     public Healthbar healthBar;
 
@@ -15,6 +16,8 @@ public class PlayerHealth : MonoBehaviour
         //start health and reset healthbar to full
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        startPos = new Vector2(-13, 0.5f);
+        transform.position = startPos;
     }
 
     void Update()
@@ -28,7 +31,18 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
+        }
+
+        void Die()
+        {
+            Respawn();
+            currentHealth = maxHealth; healthBar.SetMaxHealth(maxHealth);
+        }
+
+        void Respawn()
+        {
+            transform.position = startPos;
         }
 
         //after taking damage update healthbar to currenthealth
