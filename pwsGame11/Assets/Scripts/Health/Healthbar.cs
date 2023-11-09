@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Healthbar : MonoBehaviour
 {
-    [SerializeField] private Health playerHealth;
-    [SerializeField] private Image totalhealthBar;
-    [SerializeField] private Image currenthealthBar;
 
-    private void Start()
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+
+    public void SetMaxHealth(int health)
     {
-        totalhealthBar.fillAmount = playerHealth.currentHealth / 10;
+        slider.maxValue = health;
+        slider.value = health;
+
+      fill.color = gradient.Evaluate(1f);
     }
 
-    private void Update()
+    public void SetHealth(int health)
     {
-        currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+   
 }
- 
