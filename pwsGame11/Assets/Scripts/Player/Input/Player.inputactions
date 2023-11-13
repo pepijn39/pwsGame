@@ -59,6 +59,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "down",
+                    "id": "b4c0313a-ff89-4ca9-89cb-4825454bb453",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "left",
                     "id": "0739dc6b-ca49-47a1-bc65-9bede332b8e1",
                     "path": "<Keyboard>/a",

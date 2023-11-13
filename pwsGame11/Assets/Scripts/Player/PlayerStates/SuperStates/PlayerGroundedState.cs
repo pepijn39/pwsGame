@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerGroundedState : PlayerState
 {
     protected int xInput;
-
+    protected int yInput;  
     private bool JumpInput;
+    private bool isGrounded;
+
     public PlayerGroundedState(Player player, PlayerStateMachine statemachine, PlayerData playerData, string animBoolName) : base(player, statemachine, playerData, animBoolName)
     {
     }
@@ -14,11 +16,13 @@ public class PlayerGroundedState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
+        isGrounded = player.CheckIfGrounded();
     }
 
     public override void Enter()
     {
         base.Enter();
+        player.JumpState.ResetAmountOfJumpsLeft();
     }
 
     public override void LogicUpdate()
@@ -26,12 +30,18 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
 
         xInput = player.InputHandler.NormInputX;
+        yInput = player.InputHandler.NormInputY;
         JumpInput = player.InputHandler.JumpInput;
 
-        if(JumpInput)
+        if(JumpInput && player.JumpState.CanJump())
         {
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.JumpState);
+        }
+        else if (!isGrounded)
+        {
+            player.InAirState.StartCoyoteTime();
+            stateMachine.ChangeState(player.InAirState);
         }
     }
 
