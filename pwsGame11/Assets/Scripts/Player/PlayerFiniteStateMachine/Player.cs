@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
-    public PlayerCrouchIdleState CrouchIdleState { get; set; }
-    public PlayerCrouchMoveState CrouchMoveState { get; set;}
+    public PlayerCrouchIdleState CrouchIdleState { get; private set; }
+    public PlayerCrouchMoveState CrouchMoveState { get; private set;}
+    public PlayerAttackState PrimaryAttackState { get; private set; }
+    public PlayerAttackState SecondaryAttackState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
 
     private Vector2 Workspace;
 
-
+    #region Unity Oproepers
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
@@ -59,11 +61,12 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
         CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
         CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
-
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
 
 
-
+    
     private void Start()
     {
         Animator = GetComponent<Animator>();
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
-
+    #endregion
     public void SetVelocityZero()
     {
         rb.velocity = Vector2.zero;

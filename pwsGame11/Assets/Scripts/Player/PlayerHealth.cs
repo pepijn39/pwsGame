@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
         //start health and reset healthbar to full
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        startPos = new Vector2(-13, 0.5f);
+        startPos = new Vector2(-13, 1f);
         transform.position = startPos;
     }
 
