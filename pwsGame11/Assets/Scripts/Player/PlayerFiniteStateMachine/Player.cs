@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }    
     public Rigidbody2D rb { get; private set; }
+    public BoxCollider2D MovementCollider { get; private set; }
     #endregion
 
     #region Other Variables
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private Transform ceilingCheck;
 
 
     #endregion
@@ -66,6 +69,7 @@ public class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
+        MovementCollider = GetComponent<BoxCollider2D>();
 
         FacingDirection = 1;
 
@@ -87,6 +91,12 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.PhysicsUpdate();
     }
 
+    public void SetVelocityZero()
+    {
+        rb.velocity = Vector2.zero;
+        CurrentVelocity = Vector2.zero;
+    }
+
     public void SetVelocityX(float velocity)
     {
         Workspace.Set(velocity, CurrentVelocity.y);
@@ -101,6 +111,11 @@ public class Player : MonoBehaviour
         CurrentVelocity = Workspace;
     }
 
+    public bool CheckForCeiling()
+    {
+        return Physics2D.OverlapCircle(ceilingCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
+    }
+
     public bool CheckIfGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
@@ -112,6 +127,17 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void SetColliderHeight(float height)
+    {
+        Vector2 center = MovementCollider.offset;
+        Workspace.Set(MovementCollider.size.x, height);
+
+        center.y += (height - MovementCollider.size.y) / 2;
+
+        MovementCollider.size = Workspace;
+        MovementCollider.offset = center;
     }
 
     private void AnimationTriggerFunction()
