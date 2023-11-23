@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -27,11 +28,15 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }    
     public Rigidbody2D rb { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
+    public PlayerInventory Inventory { get; private set; }
     #endregion
 
     #region Other Variables
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
+    public float attackRange = 0.5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
     #endregion
 
     #region Check Transforms
@@ -44,10 +49,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
-
-
-
-    private Vector2 Workspace;
+     private Vector2 Workspace;
 
     #region Unity Oproepers
     private void Awake()
@@ -73,8 +75,12 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();
+        Inventory = GetComponent<PlayerInventory>();
 
         FacingDirection = 1;
+
+        PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        
 
         StateMachine.Initialize(IdleState);
     }
@@ -85,6 +91,8 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = rb.velocity;
         StateMachine.CurrentState.LogicUpdate();
+       
+ 
     }
 
 
@@ -131,6 +139,9 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
+
+
+
 
     public void SetColliderHeight(float height)
     {

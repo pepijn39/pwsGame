@@ -37,12 +37,16 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInputs[(int)CombatInputs.primary] = true;
+            
+
         }
 
         if (context.canceled)
         {
             AttackInputs[(int)CombatInputs.primary] = false;
         }
+
+        
     }
 
 

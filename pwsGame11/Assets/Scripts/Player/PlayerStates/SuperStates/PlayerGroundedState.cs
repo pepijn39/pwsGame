@@ -37,7 +37,15 @@ public class PlayerGroundedState : PlayerState
         yInput = player.InputHandler.NormInputY;
         JumpInput = player.InputHandler.JumpInput;
 
-        if(JumpInput && player.JumpState.CanJump() && !isTouchingCeiling)
+
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        } else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        }
+       else if(JumpInput && player.JumpState.CanJump() && !isTouchingCeiling)
         {
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.JumpState);

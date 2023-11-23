@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 6
-  jumpVelocity: 15
+  jumpVelocity: 20
   amountOfJumps: 1
   coyoteTime: 0.2
-  variableJumpHeightMultiplier: 0.5
-  crouchMoveVelocity: 5
+  variableJumpHeightMultiplier: 0.43
+  crouchMoveVelocity: 3
+  crouchColliderHeight: 0.3
+  standColliderHeight: 0.4
   groundCheckRadius: 0.2
   whatIsGround:
     serializedVersion: 2
