@@ -36,5 +36,9 @@ public class PlayerAttackState : PlayerAbilityState
         isAbilityDone = true;
     }
 
+    public void SetPlayerVelocity(float velocity)
+    {
+        player.SetVelocityX(velocity * player.FacingDirection);
+    }
    
 }
