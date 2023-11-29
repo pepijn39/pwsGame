@@ -56,6 +56,6 @@ public class Movement : CoreComponent
     private void Flip()
     {
         FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        Rb.transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 }
