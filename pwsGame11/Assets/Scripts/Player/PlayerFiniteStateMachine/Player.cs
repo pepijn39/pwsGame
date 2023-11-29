@@ -24,36 +24,31 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Components
+    public Core Core { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }    
-    public Rigidbody2D rb { get; private set; }
+    public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
     public PlayerInventory Inventory { get; private set; }
     #endregion
 
     #region Other Variables
-    public Vector2 CurrentVelocity { get; private set; }
-    public int FacingDirection { get; private set; }
+   // public Vector2 CurrentVelocity { get; private set; }
+   // public int FacingDirection { get; private set; }
     public float attackRange = 0.5f;
     public Transform attackPoint;
     public LayerMask enemyLayers;
     #endregion
 
-    #region Check Transforms
-
-    [SerializeField]
-    private Transform groundCheck;
-    [SerializeField]
-    private Transform ceilingCheck;
-
-
-    #endregion
+   
 
      private Vector2 Workspace;
 
     #region Unity Oproepers
     private void Awake()
     {
+        Core = GetComponentInChildren<Core>();
+
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -73,11 +68,11 @@ public class Player : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
-        rb = GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();
         Inventory = GetComponent<PlayerInventory>();
 
-        FacingDirection = 1;
+       
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
         
@@ -89,7 +84,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        CurrentVelocity = rb.velocity;
+        Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
        
  
@@ -102,43 +97,11 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.PhysicsUpdate();
     }
     #endregion
-    public void SetVelocityZero()
-    {
-        rb.velocity = Vector2.zero;
-        CurrentVelocity = Vector2.zero;
-    }
 
-    public void SetVelocityX(float velocity)
-    {
-        Workspace.Set(velocity, CurrentVelocity.y);
-        rb.velocity = Workspace;
-        CurrentVelocity = Workspace;
-    }
 
-    public void SetVelocityY(float velocity)
-    {
-        Workspace.Set(CurrentVelocity.x, velocity);
-        rb.velocity = Workspace;
-        CurrentVelocity = Workspace;
-    }
+  
 
-    public bool CheckForCeiling()
-    {
-        return Physics2D.OverlapCircle(ceilingCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
-    }
-
-    public bool CheckIfGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
-    }
-
-    public void CheckIfShouldFlip(int xInput)
-    {
-        if (xInput != 0 && xInput == FacingDirection)
-        {
-            Flip();
-        }
-    }
+   
 
 
 
@@ -164,10 +127,6 @@ public class Player : MonoBehaviour
         StateMachine.CurrentState.AnimationFinishTrigger();
     }
 
-    private void Flip()
-    {
-        FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-    }
+   
 
 }

@@ -36,5 +36,15 @@ public class Weapons : MonoBehaviour
     {
         this.state = state;
     }
+    
+    public virtual void AnimationTurnOffFlipTrigger()
+    {
+        state.SetFlipCheck(false);
+    }
+
+    public virtual void AnimationTurnOnFlipTrigger()
+    {
+        state.SetFlipCheck(true);
+    }
 
 }
