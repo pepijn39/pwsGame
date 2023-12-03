@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c2373fe6f775f348bcfdf2cf605694d, type: 3}
-  m_Name: newWeaponData
+  m_Name: Bite
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed:
+  - 0

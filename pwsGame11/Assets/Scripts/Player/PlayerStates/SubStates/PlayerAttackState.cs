@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttackState : PlayerAbilityState
 {
     private Weapons weapon;
-    [SerializeField] private WeaponData weaponData;
+ 
 
     private int xInput;
 
@@ -20,14 +20,20 @@ public class PlayerAttackState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-        SetPlayerVelocity(weaponData.movementSpeed);
+
         setVelocity = false;
+
+        weapon.EnterWeapon();
+        
+        
         
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        weapon.ExitWeapon();
         SetPlayerVelocity(0f);
         
         
@@ -36,6 +42,7 @@ public class PlayerAttackState : PlayerAbilityState
     public void SetWeapon(Weapons weapon)
     {
         this.weapon = weapon;
+        weapon.InitializeWeapon(this);
     }
 
     public override void LogicUpdate()
@@ -64,6 +71,11 @@ public class PlayerAttackState : PlayerAbilityState
         base.AnimationFinishTrigger();
 
         isAbilityDone = true;
+    }
+
+    private void AnimationActionTrigger()
+    {
+        weapon.AnimationActionTrigger();
     }
 
     public void SetPlayerVelocity(float velocity)

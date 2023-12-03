@@ -15,9 +15,9 @@ TagManager:
   - enemy
   - Background
   - Ground
+  - Damageable
   - Player
-  - 
-  - 
+  - Weapon
   - 
   - 
   - 

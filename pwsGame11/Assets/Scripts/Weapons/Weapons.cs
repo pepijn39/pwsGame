@@ -5,25 +5,46 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    protected Animator basicAnimator;
+    protected Animator baseAnimator;
+    protected Animator weaponAnimator;
     protected PlayerAttackState state;
+
+    protected int attackCounter;
+    [SerializeField] private WeaponData weaponData;
+   
     protected virtual void Start()
     {
-        basicAnimator = transform.Find("Player").GetComponent<Animator>();
-        basicAnimator.SetBool("attack", false);
+        weaponAnimator = transform.Find("Bite").GetComponent<Animator>();
+        // baseAnimator = ...
+        gameObject.SetActive(false);
         
     }
 
     public virtual void EnterWeapon()
     {
-        basicAnimator.SetBool("attack", true);
-       
+        gameObject.SetActive(true);
+
+        if (attackCounter >= weaponData.movementSpeed.Length)
+        {
+            attackCounter = 0;
+        }
+
+        weaponAnimator.SetBool("attack", true);
+        //baseAnimator...
+
+        weaponAnimator.SetInteger("attackCounter", attackCounter);
+
     }
     
 
     public virtual void ExitWeapon()
     {
-        basicAnimator.SetBool("attack", false);
+        weaponAnimator.SetBool("attack", false);
+        //baseAnimator...
+
+        attackCounter++;
+
+        gameObject.SetActive(false);
         
     }
 
@@ -32,10 +53,16 @@ public class Weapons : MonoBehaviour
         state.AnimationFinishTrigger();
     }
 
-    public void InitializeWeapon(PlayerAttackState state)
+    public virtual void AnimationStartMovementTrigger()
     {
-        this.state = state;
+        state.SetPlayerVelocity(weaponData.movementSpeed[attackCounter]);
     }
+
+    public virtual void AnimationStopMovementTrigger()
+    {
+        state.SetPlayerVelocity(0f);
+    }
+ 
     
     public virtual void AnimationTurnOffFlipTrigger()
     {
@@ -45,6 +72,16 @@ public class Weapons : MonoBehaviour
     public virtual void AnimationTurnOnFlipTrigger()
     {
         state.SetFlipCheck(true);
+    }
+
+    public virtual void AnimationActionTrigger()
+    {
+
+    }
+
+    public void InitializeWeapon(PlayerAttackState state)
+    {
+        this.state = state;
     }
 
 }
