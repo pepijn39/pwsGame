@@ -4,31 +4,66 @@ using UnityEngine;
 
 public class AgressiveWeapon : Weapons
 {
-    private List<IDamageable> detectedDamagables = new List<IDamageable>();
+    protected AgressiveWeaponData agressiveWeaponData;
+
+    private List<IDamageable> detectedDamagable = new List<IDamageable>();
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (weaponData.GetType() == typeof(AgressiveWeaponData))
+        {
+            agressiveWeaponData = (AgressiveWeaponData)weaponData;
+        }
+        else
+        {
+            Debug.LogError("verkeerde data voor wapen");
+        }
+    }
+
     public override void AnimationActionTrigger()
     {
         base.AnimationActionTrigger();
+
+        CheckMeleeAttack();
+    }
+
+
+    private void CheckMeleeAttack()
+    {
+        WeaponAttackDetails details = agressiveWeaponData.AttackDetails[attackCounter];
+
+
+        foreach (IDamageable item in detectedDamagable)
+        {
+            item.Damage(details.damageAmount);
+        }
     }
 
     public void AddToDetected(Collider2D collision)
     {
-        Debug.Log("AddToDetected");
+        
         IDamageable damageable = collision.GetComponent<IDamageable>(); 
         if (damageable != null) 
         {
-            Debug.Log("Added");
-            detectedDamagables.Add(damageable);
+           
+            detectedDamagable.Add(damageable);
         }
     }
 
     public void RemoveFromDetected(Collider2D collision)
     {
-        Debug.Log("RemoveFromDetected");
+        
         IDamageable damageable = collision.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            Debug.Log("Removed");
-            detectedDamagables.Remove(damageable);
+           
+            detectedDamagable.Remove(damageable);
         }
     }
 }
+
+
+

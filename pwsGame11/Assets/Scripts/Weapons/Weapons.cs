@@ -10,9 +10,9 @@ public class Weapons : MonoBehaviour
     protected PlayerAttackState state;
 
     protected int attackCounter;
-    [SerializeField] private WeaponData weaponData;
+    [SerializeField] protected WeaponData weaponData;
    
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         weaponAnimator = transform.Find("Bite").GetComponent<Animator>();
         // baseAnimator = ...
@@ -24,7 +24,7 @@ public class Weapons : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        if (attackCounter >= weaponData.movementSpeed.Length)
+        if (attackCounter >= weaponData.amountOfAttacks)
         {
             attackCounter = 0;
         }
@@ -85,3 +85,5 @@ public class Weapons : MonoBehaviour
     }
 
 }
+
+
