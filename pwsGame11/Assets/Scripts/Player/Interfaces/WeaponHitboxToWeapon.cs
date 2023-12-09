@@ -2,32 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- 
 
 
 
- 
+
 
 
 public class WeaponHitboxToPlayer : MonoBehaviour
 {
-    private AgressiveWeapon weapon;
+    private Enemy enemy;
 
     private void Awake()
     {
-        weapon = GetComponentInParent<AgressiveWeapon>();
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
-        weapon.AddToDetected(collision);
+        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyCompenent))
+        {
+            enemyCompenent.TakeDamage(20f);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("OnTriggerExit2D");
-        weapon.RemoveFromDetected(collision);
+        collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy);
+
+
     }
 }
 

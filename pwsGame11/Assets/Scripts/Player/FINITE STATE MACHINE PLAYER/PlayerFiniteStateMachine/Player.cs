@@ -39,9 +39,7 @@ public class Player : MonoBehaviour
     #region Other Variables
    // public Vector2 CurrentVelocity { get; private set; }
    // public int FacingDirection { get; private set; }
-    public float attackRange = 0.5f;
-    public Transform attackPoint;
-    public LayerMask enemyLayers;
+ 
     #endregion
 
    

@@ -2,21 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- 
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 public class PlayerState
 {
@@ -48,7 +33,7 @@ public class PlayerState
         DoChecks();
         player.Animator.SetBool(animBoolName, true);
         startTime = Time.time;
-       // Debug.Log(animBoolName);
+        Debug.Log(animBoolName);
         isAnimationFinished = false;
         isExitingState = false;
     }

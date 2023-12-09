@@ -9,6 +9,7 @@ public class CombatTestDummy : MonoBehaviour, IDamageable
     public void Damage(float amount)
     {
         Debug.Log(amount + "Damage Taken!");
+        Destroy(gameObject);
     }
 
     private void Awake()
