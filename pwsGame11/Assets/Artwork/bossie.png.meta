@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1626ad92382a454998d7db1a874fe26
+guid: 2ca9d81046550c941b6b923bf36a4d32
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,337 +123,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bos_0
+      name: bossie_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 160
-        width: 68
-        height: 80
+        x: 0
+        y: 576
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 724ed77ffc2e4754b887629eb107d482
-      internalID: -1375280008
+      spriteID: 6818e2e3ba17c534a8f5ccc16418c7db
+      internalID: -104974871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_1
+      name: bossie_1
       rect:
         serializedVersion: 2
-        x: 81
-        y: 224
-        width: 33
-        height: 25
+        x: 160
+        y: 576
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fe4080f3ce1af745af97d245e5b2af1
-      internalID: 1440082050
+      spriteID: 92c670c19b2838648ab454868e50da82
+      internalID: -1076733332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_2
+      name: bossie_2
       rect:
         serializedVersion: 2
-        x: 129
-        y: 224
-        width: 31
-        height: 24
+        x: 320
+        y: 576
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c6c7edfc67a3f34d85af8952d7cd71c
-      internalID: 51662307
+      spriteID: fc1c0ca3c9e454040990d57415e32b48
+      internalID: 2039482870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_3
+      name: bossie_3
       rect:
         serializedVersion: 2
-        x: 177
-        y: 224
-        width: 31
-        height: 24
+        x: 480
+        y: 576
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0b0f43d53e22ed42893fbd80cef1ed1
-      internalID: -724558559
+      spriteID: 7d4c8d5cce0cfe0428db5fbeb360a6ae
+      internalID: -1618226754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_4
+      name: bossie_4
       rect:
         serializedVersion: 2
-        x: 225
+        x: 0
+        y: 384
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea52446fc6a2c24cb6185f62a2da9b0
+      internalID: -46913909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossie_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccfceed3190ce74fb7ec87d54d0b674
+      internalID: 273145733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossie_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858080dfe174aa2429a732543788a531
+      internalID: 1387336447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossie_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd89063ece65cce429f7d311ccd124ed
+      internalID: 2068891617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bossie_8
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 192
-        width: 17
-        height: 56
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde6d58564dc4cf45b7d5759f7961fd6
-      internalID: -21813484
+      spriteID: 61d3c7dff0548d74f948fc640c29716d
+      internalID: -1053068774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_5
+      name: bossie_9
       rect:
         serializedVersion: 2
-        x: 81
-        y: 160
-        width: 31
-        height: 13
+        x: 160
+        y: 192
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3faa3e8b4a2b3d74abcd0424e51a130c
-      internalID: -258753321
+      spriteID: 1502b419da9503340b694f54717b10a3
+      internalID: 992511703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_6
+      name: bossie_10
       rect:
         serializedVersion: 2
-        x: 125
-        y: 160
-        width: 37
-        height: 21
+        x: 320
+        y: 192
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe38c31dd87318244b92ee476923bef1
-      internalID: 742404332
+      spriteID: 90732d7994733354e8b3604376d86cf4
+      internalID: -440249987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_7
+      name: bossie_11
       rect:
         serializedVersion: 2
-        x: 177
-        y: 160
-        width: 31
-        height: 8
+        x: 480
+        y: 192
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a42486452859c84ca5b478ec99bdd5d
-      internalID: 1054372285
+      spriteID: 798075396d4c8084ea8caaf92b5d6fb3
+      internalID: 1284784313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_8
+      name: bossie_12
       rect:
         serializedVersion: 2
-        x: 1
-        y: 80
-        width: 42
-        height: 53
+        x: 0
+        y: 0
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e40e1697e71f574cad3ff36e68cad7e
-      internalID: -368576705
+      spriteID: 14fb2787cf2b5c844bfacfc097bb609c
+      internalID: -1726241972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_9
+      name: bossie_13
       rect:
         serializedVersion: 2
-        x: 177
-        y: 112
-        width: 28
-        height: 30
+        x: 160
+        y: 0
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ddde9c26d0f8704a8f174add482b859
-      internalID: -94877766
+      spriteID: bba38b74dc03abf488202768571811cf
+      internalID: 1643913327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_10
+      name: bossie_14
       rect:
         serializedVersion: 2
-        x: 225
-        y: 113
-        width: 21
-        height: 30
+        x: 320
+        y: 0
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ba3ca505a54b547ba1b3031ed77916
-      internalID: 422731962
+      spriteID: 6798c1eb94b01ea418657ee08ead9030
+      internalID: -1020714710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bos_11
+      name: bossie_15
       rect:
         serializedVersion: 2
-        x: 49
-        y: 80
-        width: 27
-        height: 17
+        x: 480
+        y: 0
+        width: 160
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd6215b056e30443a3a91812856b099
-      internalID: -178763149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bos_12
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 80
-        width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef03260b98fefda42a3c59c387443ef6
-      internalID: -1785136779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bos_13
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 16
-        width: 69
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43c113fab61781c4bac2595145eb32f2
-      internalID: 1541401820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bos_14
-      rect:
-        serializedVersion: 2
-        x: 186
-        y: 16
-        width: 68
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1c22a7d92555d48b2649c6f2ae23a9
-      internalID: 551828239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bos_15
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 16
-        width: 41
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d41cba4efbd1764f8b7ace55a132b48
-      internalID: 714202600
+      spriteID: 78c878e68328e554c94b8e9e71cd8bf3
+      internalID: -2147332664
       vertices: []
       indices: 
       edges: []
@@ -469,22 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bos_0: -1375280008
-      bos_1: 1440082050
-      bos_10: 422731962
-      bos_11: -178763149
-      bos_12: -1785136779
-      bos_13: 1541401820
-      bos_14: 551828239
-      bos_15: 714202600
-      bos_2: 51662307
-      bos_3: -724558559
-      bos_4: -21813484
-      bos_5: -258753321
-      bos_6: 742404332
-      bos_7: 1054372285
-      bos_8: -368576705
-      bos_9: -94877766
+      bossie_0: -104974871
+      bossie_1: -1076733332
+      bossie_10: -440249987
+      bossie_11: 1284784313
+      bossie_12: -1726241972
+      bossie_13: 1643913327
+      bossie_14: -1020714710
+      bossie_15: -2147332664
+      bossie_2: 2039482870
+      bossie_3: -1618226754
+      bossie_4: -46913909
+      bossie_5: 273145733
+      bossie_6: 1387336447
+      bossie_7: 2068891617
+      bossie_8: -1053068774
+      bossie_9: 992511703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
