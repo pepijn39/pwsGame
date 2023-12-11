@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class HeartUp : MonoBehaviour
 {
-    public PlayerHealth health;
+    public GameObject pickupEffect;
+    public Animator anim;
 
 
     private void Start()
     {
-        health = GetComponentInParent<PlayerHealth>();
+        anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void Pickup()
     {
-        if(CompareTag("Player"))
-        {
-            Debug.Log("Touching tips");
-        }
+        Instantiate(pickupEffect, transform.position, transform.rotation);
+        
+        Destroy(gameObject);
     }
         
 }

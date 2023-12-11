@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     Vector2 startPos;
     public Animator anim;
 
+    public HeartUp heart;
     public Healthbar healthBar;
 
     void Start()
@@ -57,12 +58,30 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-  /*  private void OnTriggerEnter2D(Collider2D collision)
+    private void Heal(int heal)
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyCompenent))
+        currentHealth += heal;
+        healthBar.SetHealth(currentHealth);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<HeartUp>(out HeartUp heart))
         {
-            enemyCompenent.TakeDamage(20f);
+            Heal(20);
+            heart.Pickup();
         }
     }
-  */
+
+
+
+    /*  private void OnTriggerEnter2D(Collider2D collision)
+      {
+          if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyCompenent))
+          {
+              enemyCompenent.TakeDamage(20f);
+          }
+      }
+    */
 }
