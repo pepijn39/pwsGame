@@ -18,5 +18,5 @@ MonoBehaviour:
   coyoteTime: 0.2
   variableJumpHeightMultiplier: 0.43
   crouchMoveVelocity: 3
-  crouchColliderHeight: 0.3
-  standColliderHeight: 0.4
+  crouchColliderHeight: 0.25
+  standColliderHeight: 0.35

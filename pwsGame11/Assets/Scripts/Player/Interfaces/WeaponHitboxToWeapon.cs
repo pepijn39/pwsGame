@@ -11,6 +11,7 @@ using UnityEngine;
 public class WeaponHitboxToPlayer : MonoBehaviour
 {
     private Enemy enemy;
+    private CombatTestDummy testDummy;
 
     private void Awake()
     {
@@ -19,10 +20,8 @@ public class WeaponHitboxToPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyCompenent))
-        {
-            enemyCompenent.TakeDamage(20f);
-        }
+        Debug.Log("OnTriggerEnter2D");
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
