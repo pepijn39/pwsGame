@@ -19,10 +19,12 @@ public class PlayerGroundedState : PlayerState
 {
     protected int xInput;
     protected int yInput;
+    
     protected bool isTouchingCeiling;
 
     private bool JumpInput;
     private bool isGrounded;
+    private bool isOnSlope;
 
 
     public PlayerGroundedState(Player player, PlayerStateMachine statemachine, PlayerData playerData, string animBoolName) : base(player, statemachine, playerData, animBoolName)
@@ -34,6 +36,10 @@ public class PlayerGroundedState : PlayerState
         base.DoChecks();
         isGrounded = core.CollisionSenses.Grounded;
         isTouchingCeiling = core.CollisionSenses.Ceiling;
+        if (core.CollisionSenses.slopeDownAngle != core.CollisionSenses.slopeDownAngleOld)
+        {
+            isOnSlope = true;
+        }
     }
 
     public override void Enter()
@@ -67,6 +73,9 @@ public class PlayerGroundedState : PlayerState
         {
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
+        } else if (isOnSlope)
+        {
+            stateMachine.ChangeState(player.SlopeState);
         }
     }
 

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public PlayerCrouchMoveState CrouchMoveState { get; private set;}
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
+    public PlayerSlopeState SlopeState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
    
 
      private Vector2 Workspace;
+     public Vector2 colliderSize;
 
     #region Unity Oproepers
     private void Awake()
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
         CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        SlopeState = new PlayerSlopeState(this, StateMachine, playerData, "slope");
     }
 
 
@@ -74,7 +77,7 @@ public class Player : MonoBehaviour
         MovementCollider = GetComponent<BoxCollider2D>();
         Inventory = GetComponent<PlayerInventory>();
 
-       
+        colliderSize = MovementCollider.size;
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
         
