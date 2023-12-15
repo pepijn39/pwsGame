@@ -28,9 +28,7 @@ public class CollisionSenses : CoreComponent
 
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask whatIsGround;
-    public float slopeDownAngle;
-    public float slopeDownAngleOld;
-    public Vector2 slopeNormalPerp;
+
 
 
 

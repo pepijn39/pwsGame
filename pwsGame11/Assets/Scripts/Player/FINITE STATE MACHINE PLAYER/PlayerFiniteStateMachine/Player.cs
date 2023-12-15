@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public PlayerCrouchMoveState CrouchMoveState { get; private set;}
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
-    public PlayerSlopeState SlopeState { get; private set; }
+  //  public PlayerSlopeState SlopeState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }    
     public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
+    public CapsuleCollider2D cc { get; private set; }
     public PlayerInventory Inventory { get; private set; }
     #endregion
 
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
         CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
-        SlopeState = new PlayerSlopeState(this, StateMachine, playerData, "slope");
+      //  SlopeState = new PlayerSlopeState(this, StateMachine, playerData, "slope");
     }
 
 
@@ -76,8 +77,9 @@ public class Player : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();
         Inventory = GetComponent<PlayerInventory>();
+        cc = GetComponent<CapsuleCollider2D>();
 
-        colliderSize = MovementCollider.size;
+        colliderSize = cc.size;
 
         PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
         

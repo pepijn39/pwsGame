@@ -20,7 +20,7 @@ public class PlayerIdleState : PlayerGroundedState
     public PlayerIdleState(Player player, PlayerStateMachine statemachine, PlayerData playerData, string animBoolName) : base(player, statemachine, playerData, animBoolName)
     {
     }
-    public Rigidbody2D rb;
+    
 
     public override void DoChecks()
     {
@@ -31,9 +31,13 @@ public class PlayerIdleState : PlayerGroundedState
     {
         
         base.Enter();
+        
         core.Movement.SetVelocityX(0f);
+       
         
     }
+
+
 
     public override void LogicUpdate()
     {
@@ -43,6 +47,7 @@ public class PlayerIdleState : PlayerGroundedState
 
         if (!isExitingState)
         {
+           
             if (xInput != 0)
             {
                 stateMachine.ChangeState(player.MoveState);

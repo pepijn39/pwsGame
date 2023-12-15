@@ -40,6 +40,8 @@ public class Movement : CoreComponent
         Workspace.Set(velocity, CurrentVelocity.y);
         Rb.velocity = Workspace;
         CurrentVelocity = Workspace;
+
+        
     }
 
     public void SetVelocityY(float velocity)

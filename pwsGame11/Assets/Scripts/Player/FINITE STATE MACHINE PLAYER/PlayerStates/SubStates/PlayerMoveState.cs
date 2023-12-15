@@ -16,6 +16,15 @@ public class PlayerMoveState : PlayerGroundedState
     {
     }
 
+  
+    
+    
+    private float slopeDownAngle;
+    private float slopeDownAngleOld;
+    private Vector2 slopeNormalPerp;
+
+
+
     public override void DoChecks()
     {
         base.DoChecks();
@@ -24,11 +33,13 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
+        
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        
 
         core.Movement.CheckIfShouldFlip(xInput);
 
@@ -54,4 +65,6 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.PhysicsUpdate();
     }
+
+  
 }
