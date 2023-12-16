@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDetails:
   - attackName: Bite
-    movementSpeed: 0
+    movementSpeed: 0.01
     damageAmount: 20

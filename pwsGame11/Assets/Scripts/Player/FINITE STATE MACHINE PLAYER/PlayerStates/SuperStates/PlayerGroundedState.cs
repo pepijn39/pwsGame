@@ -26,9 +26,13 @@ public class PlayerGroundedState : PlayerState
     private bool isGrounded;
     private bool isOnSlope;
 
-    private float slopeCheckDistance = 1.75f;
+    private float slopeCheckDistance = 2f;
     private float slopeDownAngle;
     private float slopeDownAngleOld;
+    private float slopeSideAngle;
+   
+   
+
 
     private Vector2 slopeNormalPerp;
 
@@ -79,6 +83,11 @@ public class PlayerGroundedState : PlayerState
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
         } 
+        else if (isOnSlope && isGrounded)
+        {
+            core.Movement.SetVelocityX(core.Movement.CurrentVelocity.x * slopeNormalPerp.x * -xInput);
+            core.Movement.Rb.velocity = core.Movement.CurrentVelocity;
+        }
     }
 
 
@@ -93,6 +102,7 @@ public class PlayerGroundedState : PlayerState
     {
         Vector2 checkpos = player.transform.position - new Vector3(0.0f, player.colliderSize.y / 2);
         SlopeCheckVertical(checkpos);
+        SlopeCheckHorizontal(checkpos);
     }
 
     private void SlopeCheckVertical(Vector2 checkpos)
@@ -100,7 +110,7 @@ public class PlayerGroundedState : PlayerState
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, slopeCheckDistance, core.CollisionSenses.WhatIsGround);
         if (hit)
         {
-            slopeNormalPerp = Vector2.Perpendicular(hit.normal);
+            slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
 
             slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -114,11 +124,37 @@ public class PlayerGroundedState : PlayerState
             Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
             Debug.DrawRay(hit.point, hit.normal, Color.yellow);
         }
+
+        if(isOnSlope && xInput == 0.0f)
+        {
+            player.Rb.sharedMaterial = player.fullFriction;
+        }
+        else
+        {
+            player.Rb.sharedMaterial = player.slippery;
+        }
     }
 
     private void SlopeCheckHorizontal(Vector2 checkpos)
     {
+        RaycastHit2D slopeHitFront = Physics2D.Raycast(checkpos, player.transform.right, slopeCheckDistance, core.CollisionSenses.WhatIsGround);
+        RaycastHit2D slopeHitBack = Physics2D.Raycast(checkpos, -player.transform.right, slopeCheckDistance, core.CollisionSenses.WhatIsGround);
 
+        if (slopeHitFront)
+        {
+            isOnSlope = true;
+            slopeSideAngle = Vector2.Angle(slopeHitFront.normal, Vector2.up);
+        }
+        else if (slopeHitBack)
+        {
+            isOnSlope = true;
+            slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+        } 
+        else
+        {
+            slopeSideAngle = 0.0f;
+            isOnSlope = false;
+        }
     }
 }
 

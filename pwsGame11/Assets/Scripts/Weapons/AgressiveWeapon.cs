@@ -35,10 +35,10 @@ public class AgressiveWeapon : Weapons
     {
         WeaponAttackDetails details = agressiveWeaponData.AttackDetails[attackCounter];
 
-
         foreach (IDamageable item in detectedDamagable)
         {
-            item.Damage(details.damageAmount);
+
+            item.Damage(10f);
         }
     }
 
@@ -48,8 +48,9 @@ public class AgressiveWeapon : Weapons
         IDamageable damageable = collision.GetComponent<IDamageable>(); 
         if (damageable != null) 
         {
-           
+            
             detectedDamagable.Add(damageable);
+            
         }
     }
 
@@ -59,7 +60,7 @@ public class AgressiveWeapon : Weapons
         IDamageable damageable = collision.GetComponent<IDamageable>();
         if (damageable != null)
         {
-           
+            
             detectedDamagable.Remove(damageable);
         }
     }

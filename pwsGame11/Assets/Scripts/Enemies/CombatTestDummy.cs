@@ -2,26 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatTestDummy : MonoBehaviour
+public class CombatTestDummy : MonoBehaviour, IDamageable
 {
     private Animator anim;
-    public float enemyMaxHealth = 50f;
-    public float enemyCurrentHealth;
 
-    private void Start()
+    public void Damage(float amount)
     {
-        enemyCurrentHealth = enemyMaxHealth;
-        anim = GetComponent<Animator>();
+        Debug.Log(amount + " Damage Taken");
     }
 
-    public void TakeDamage(float damage)
+    private void Awake()
     {
-        enemyCurrentHealth -= damage;
-
-        if (enemyCurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        anim = GetComponent<Animator>();
     }
 
 

@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     public BoxCollider2D MovementCollider { get; private set; }
     public CapsuleCollider2D cc { get; private set; }
     public PlayerInventory Inventory { get; private set; }
+    public PhysicsMaterial2D slippery;
+    public PhysicsMaterial2D fullFriction;
     #endregion
 
     #region Other Variables

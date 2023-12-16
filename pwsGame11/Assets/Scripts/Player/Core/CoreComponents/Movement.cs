@@ -41,6 +41,8 @@ public class Movement : CoreComponent
         Rb.velocity = Workspace;
         CurrentVelocity = Workspace;
 
+
+
         
     }
 
