@@ -3759,6 +3759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (Finite State Machine) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4791937437394740380, guid: 5a6323f3906193349b8f23d47238093c, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1800334725}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
