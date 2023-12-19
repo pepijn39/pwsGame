@@ -2,34 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeartUp : MonoBehaviour
+public class Star : MonoBehaviour
 {
     public GameObject pickupEffect;
-    public Animator anim;
-    public PlayerHealth health;
-
+    public StarTracker tracker;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        health = GameObject.Find("Player (Finite State Machine)").GetComponent<PlayerHealth>();
+        tracker = GameObject.Find("Player (Finite State Machine)").GetComponent<StarTracker>();
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        GetComponent<BoxCollider2D>().enabled = false;
+        if (collision.gameObject.CompareTag("Player"))
         {
-            health.Heal(20);
             Pickup();
+            tracker.StarCounter();
+           
+
+
         }
     }
 
-
-    public void Pickup()
+    private void Pickup()
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
-        
+       
+
+
         Destroy(gameObject);
     }
-        
 }

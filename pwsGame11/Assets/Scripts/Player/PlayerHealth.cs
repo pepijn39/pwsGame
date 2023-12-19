@@ -34,7 +34,9 @@ public class PlayerHealth : MonoBehaviour
    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+       
 
+        
         if (currentHealth <= 0)
         {
             
@@ -52,7 +54,8 @@ public class PlayerHealth : MonoBehaviour
         {
             
             transform.position = startPos;
-            
+           
+
         }
 
         //after taking damage update healthbar to currenthealth
@@ -66,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-   
+  
 
   
 

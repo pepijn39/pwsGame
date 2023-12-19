@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 5911672463123409026, guid: 701ec6c4bdad2ef4d98be02a5cc477a9, type: 3}
   anim: {fileID: 8900168142559684373}
+  health: {fileID: 3619153915045220001, guid: 088c2386f3c70d14abc9f6c13af38207, type: 3}
 --- !u!61 &9076242920342746749
 BoxCollider2D:
   m_ObjectHideFlags: 0
