@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         Rb = GetComponent<Rigidbody2D>();
-        MovementCollider = GetComponent<BoxCollider2D>();
+        
         Inventory = GetComponent<PlayerInventory>();
         cc = GetComponent<CapsuleCollider2D>();
 
@@ -117,13 +117,13 @@ public class Player : MonoBehaviour
 
     public void SetColliderHeight(float height)
     {
-        Vector2 center = MovementCollider.offset;
-        Workspace.Set(MovementCollider.size.x, height);
+        Vector2 center = cc.offset;
+        Workspace.Set(cc.size.x, height);
 
-        center.y += (height - MovementCollider.size.y) / 2;
+        center.y += (height - cc.size.y) / 2;
 
-        MovementCollider.size = Workspace;
-        MovementCollider.offset = center;
+        cc.size = Workspace;
+        cc.offset = center;
     }
 
     private void AnimationTriggerFunction()

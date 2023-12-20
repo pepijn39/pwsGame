@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         transform.position = startPos;
         anim = GetComponent<Animator>();
         anim.SetBool("isDead", false);
-        anim.SetBool("takingDamage", false);
+        
         
     }
 
@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-       
+        anim.SetTrigger("takingDamage");
 
         
         if (currentHealth <= 0)
