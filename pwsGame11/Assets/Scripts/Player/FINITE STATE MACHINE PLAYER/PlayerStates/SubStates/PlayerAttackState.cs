@@ -22,7 +22,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         setVelocity = false;
-
+        player.attackSound.Play();
         weapon.EnterWeapon();
         
         

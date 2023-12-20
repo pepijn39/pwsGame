@@ -8,6 +8,7 @@ public class StarTracker : MonoBehaviour
     public int stars = 0;
    
     public TextMeshProUGUI starTracker;
+    public AudioSource collecting;
     
 
     private void Start()
@@ -17,10 +18,15 @@ public class StarTracker : MonoBehaviour
       
     }
    
-      public void StarCounter()
+    public void StarCounter()
     {
+        collecting.Play();
         stars++;
         starTracker.text = "Stars: " + stars;
+        if(stars >= 30)
+        {
+            //Je hebt het gehaald, transition naar complete scene
+        }
     }
 }
 

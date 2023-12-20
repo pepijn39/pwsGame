@@ -75,11 +75,15 @@ public class PlayerGroundedState : PlayerState
         }
        else if(JumpInput && player.JumpState.CanJump() && !isTouchingCeiling)
         {
+            player.jumpSound.Play();
+            player.walkSound.Stop();
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.JumpState);
+
         }
         else if (!isGrounded)
         {
+            player.walkSound.Stop();
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
         } 

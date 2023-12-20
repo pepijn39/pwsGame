@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelMove : MonoBehaviour
 {
-   
+    public AudioSource teleport;
     public Transition transition;
 
     private void Start()
@@ -18,6 +18,7 @@ public class LevelMove : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             transition.LoadLevel();
+            teleport.Play();
         }
     }
 

@@ -5,8 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Foxsummer : MonoBehaviour
 {
+    public AudioSource UISound;
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Summer World");
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            UISound.Play();
+            SceneManager.LoadScene("Summer World");
+        }
+       
+    }
+
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
     }
 }

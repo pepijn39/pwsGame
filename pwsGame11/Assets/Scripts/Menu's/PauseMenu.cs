@@ -9,12 +9,15 @@ public class PauseMenu : MonoBehaviour
     public static bool IsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject healthBarUI;
+    public AudioSource pause;
+    public AudioSource unpause;
 
     
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            
             if (IsPaused)
             {
                 Resume();
@@ -28,18 +31,22 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        
         pauseMenuUI.SetActive(false);
         healthBarUI.SetActive(true);
         Time.timeScale = 1;
         IsPaused = false;
+        unpause.Play();
     }
 
     private void Pause()
     {
+        
         pauseMenuUI.SetActive(true);
         healthBarUI.SetActive(false);
         Time.timeScale = 0;
         IsPaused = true;
+        pause.Play();
     }
 
     public void LoadMainMenu()

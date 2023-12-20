@@ -22,6 +22,7 @@ public class PlayerMoveState : PlayerGroundedState
     private float slopeDownAngle;
     private float slopeDownAngleOld;
     private Vector2 slopeNormalPerp;
+    
 
 
 
@@ -34,6 +35,9 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Enter();
         
+            player.walkSound.Play();
+        
+
     }
 
     public override void LogicUpdate()
@@ -50,11 +54,12 @@ public class PlayerMoveState : PlayerGroundedState
             if (xInput == 0)
             {
                 stateMachine.ChangeState(player.IdleState);
+                player.walkSound.Stop();
             }
             else if (yInput == -1)
             {
                 stateMachine.ChangeState(player.CrouchMoveState);
-
+                player.walkSound.Stop();
             }
         }
 

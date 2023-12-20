@@ -40,9 +40,13 @@ public class Player : MonoBehaviour
     public PhysicsMaterial2D fullFriction;
     #endregion
 
+
     #region Other Variables
-   // public Vector2 CurrentVelocity { get; private set; }
-   // public int FacingDirection { get; private set; }
+    // public Vector2 CurrentVelocity { get; private set; }
+    // public int FacingDirection { get; private set; }
+    public AudioSource jumpSound;
+    public AudioSource walkSound;
+    public AudioSource attackSound;
  
     #endregion
 

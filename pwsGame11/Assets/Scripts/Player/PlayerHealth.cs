@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     Vector2 startPos;
     public Animator anim;
+    public AudioSource hit;
+    public AudioSource healSound;
 
     
     public Healthbar healthBar;
@@ -35,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         anim.SetTrigger("takingDamage");
-
+        hit.Play();
         
         if (currentHealth <= 0)
         {
@@ -65,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int heal)
     {
         currentHealth += heal;
+        healSound.Play();
         healthBar.SetHealth(currentHealth);
 
     }
