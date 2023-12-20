@@ -8,11 +8,9 @@ public class Foxsummer : MonoBehaviour
     public AudioSource UISound;
     public void LoadScene(string sceneName)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
             UISound.Play();
             SceneManager.LoadScene("Summer World");
-        }
+        
        
     }
 
