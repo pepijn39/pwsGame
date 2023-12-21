@@ -18,4 +18,10 @@ public class Foxsummer : MonoBehaviour
     {
         SceneManager.LoadScene("Settings");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+
+    }
 }

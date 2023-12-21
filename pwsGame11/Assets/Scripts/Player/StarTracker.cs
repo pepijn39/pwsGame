@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StarTracker : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class StarTracker : MonoBehaviour
         starTracker.text = "Stars: " + stars;
         if(stars >= 30)
         {
-            //Je hebt het gehaald, transition naar complete scene
+            SceneManager.LoadScene("Complete");
         }
     }
 }
